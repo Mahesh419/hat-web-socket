@@ -16,22 +16,10 @@ console.log("outside io");
 
 io.on('connection', function(socket){
 
-  console.log('User Conncetion');
-
   socket.on('connect_user', function(user){
     console.log("Connected user " + JSON.stringify(user));
     io.emit('connect_user', user);
   });
-
-  // socket.on('on typing', function(typing){
-  //   console.log("Typing.... ");
-  //   io.emit('on typing', typing);
-  // });
-
-  // socket.on('chat message', function(msg){
-  //   console.log("Message " + msg['message']);
-  //   io.emit('chat message', msg);
-  // });
 });
 
 http.listen(app.get('port'), function() {
